@@ -1,0 +1,88 @@
+@use "~@/scss/theme";
+@use "~@/scss/mixins" as *;
+@use "~@/scss/components/Hamburger" as hamburger;
+
+$pad: 1.5em;
+$transition: .3s ease-in-out;
+
+.menu{
+	width: 100vw;
+	height: 100vh;
+
+	position: fixed;
+	top: 0;
+	pointer-events: none;
+
+	&__content{
+		background-color: theme.$primary;
+		width: 100%;
+		height: 100%;
+		transition: $transition;
+
+		&--opacity{
+			opacity: 0;
+			transition-property: opacity;
+		}
+
+		&--shape{
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			width: calc(#{hamburger.$width} + #{$pad});
+			height: calc(#{hamburger.$height} + #{$pad});
+			@include radiusTL;
+
+			transition-property: width, height, border-radius;
+		}
+	}
+
+	&__opener{
+		pointer-events: all;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		z-index: 20;
+
+		background-color: theme.$primary;
+
+		@include padTL($pad);
+		@include padBR($pad / 4);
+		@include radiusTL;
+
+		transition: $transition;
+		transition-property: border-radius, padding;
+	}
+
+	&__button{
+		transform: rotate(45deg);
+		transition: transform $transition;
+		will-change: rotate;
+	}
+
+	&.opened{
+		.menu{
+			pointer-events: all;
+
+			&__opener{
+				border-radius: 0;
+				padding: 0;
+			}
+
+			&__button{
+				transform: rotate(0);
+			}
+
+			&__content{
+				&--opacity{
+					opacity: 1;
+				}
+
+				&--shape{
+					width: 100vw;
+					height: 100vh;
+					border-radius: 0;
+				}
+			}
+		}
+	}
+}

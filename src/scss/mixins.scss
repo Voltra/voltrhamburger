@@ -1,0 +1,105 @@
+@mixin flex($inline: false){
+	@if($inline){
+		display: inline-flex;
+	}@else{
+		display: flex;
+	}
+
+	justify-content: center;
+	align-items: center;
+}
+
+////
+
+@mixin horizontalMargin($value){
+	margin-left: $value;
+	margin-right: $value;
+}
+
+@mixin verticalMargin($value){
+	margin-top: $value;
+	margin-bottom: $value;
+}
+
+@mixin centerMargin{
+	@include horizontalMargin(auto);
+}
+
+////
+
+@mixin horizontalPadding($value){
+	padding-left: $value;
+	padding-right: $value;
+}
+
+@mixin verticalPadding($value){
+	padding-top: $value;
+	padding-bottom: $value;
+}
+
+////
+
+@mixin padTL($value){
+	padding-top: $value;
+	padding-left: $value;
+}
+
+@mixin padBR($value){
+	padding-bottom: $value;
+	padding-right: $value;
+}
+
+@mixin padBL($value){
+	padding-bottom: $value;
+	padding-left: $value;
+}
+
+@mixin padTR($value){
+	padding-top: $value;
+	padding-right: $value;
+}
+
+////
+
+$defaultRadius: 100vw;
+
+@mixin radiusTL($value: $defaultRadius){
+	border-top-left-radius: $value;
+}
+
+@mixin radiusTR($value: $defaultRadius){
+	border-top-right-radius: $value;
+}
+
+@mixin radiusTop($value: $defaultRadius) {
+	@include radiusTL($value);
+	@include radiusTR($value);
+}
+
+@mixin radiusBL($value: $defaultRadius){
+	border-bottom-left-radius: $value;
+}
+
+@mixin radiusBR($value: $defaultRadius){
+	border-bottom-right-radius: $value;
+}
+
+@mixin radiusBottom($value: $defaultRadius){
+	@include radiusBL($value);
+	@include radiusBR($value);
+}
+
+@mixin radiusLeft($value: $defaultRadius){
+	@include radiusTL($value);
+	@include radiusBL($value);
+}
+
+@mixin radiusRight($value: $defaultRadius){
+	@include radiusTR($value);
+	@include radiusBR($value);
+}
+
+@mixin noRadius{
+	@include radiusTop(0);
+	@include radiusBottom(0);
+}

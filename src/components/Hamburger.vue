@@ -36,4 +36,5 @@
 
 
 <style lang="scss" scoped>
+	@use "~@/scss/components/Hamburger" as *;
 </style>
