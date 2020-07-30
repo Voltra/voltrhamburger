@@ -122,3 +122,48 @@ $transition: .3s ease-in-out;
 	}
 	//// </DEMO>
 }
+
+.menu--round{
+	$padding: $pad/4;
+	$vpad: $padding * 2;
+	$hpad: $padding;
+
+	.menu{
+		&__opener, &__content--shape{
+			@include radius;
+		}
+
+		&__opener{
+			bottom: $padding;
+			right: $padding;
+
+			@include verticalPadding($vpad);
+			@include horizontalPadding($hpad);
+		}
+
+		&__content{
+			&--shape{
+				bottom: $vpad;
+				right: $vpad;
+
+				width: calc(#{hamburger.$width} + #{$hpad});
+				height: calc(#{hamburger.$height} + #{$vpad});
+			}
+		}
+
+		&__button{
+			transform: none;
+		}
+	}
+
+	&.opened{
+		.menu{
+			&__content{
+				&--shape{
+					bottom: 0;
+					right: 0;
+				}
+			}
+		}
+	}
+}

@@ -99,7 +99,11 @@ $defaultRadius: 100vw;
 	@include radiusBR($value);
 }
 
+@mixin radius($value: $defaultRadius){
+	@include radiusTop($value);
+	@include radiusBottom($value);
+}
+
 @mixin noRadius{
-	@include radiusTop(0);
-	@include radiusBottom(0);
+	@include radius(0);
 }
