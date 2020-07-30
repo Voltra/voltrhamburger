@@ -41,7 +41,7 @@
 		},
 		computed: {
 			menuClass(){
-				return `menu menu--round ${this.extraClasses}`;
+				return `menu ${this.extraClasses}`;
 			},
 		},
 		methods: {
