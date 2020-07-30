@@ -158,6 +158,11 @@ $transition: .3s ease-in-out;
 
 	&.opened{
 		.menu{
+			&__opener{
+				@include verticalPadding($vpad);
+				@include horizontalPadding($hpad);
+			}
+
 			&__content{
 				&--shape{
 					bottom: 0;
