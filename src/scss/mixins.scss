@@ -107,3 +107,12 @@ $defaultRadius: 100vw;
 @mixin noRadius{
 	@include radius(0);
 }
+
+////
+
+@mixin trbl($value: 0){
+    top: $value;
+    right: $value;
+    bottom: $value;
+    left: $value;
+}

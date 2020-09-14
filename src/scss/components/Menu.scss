@@ -36,6 +36,16 @@ $transition: .3s ease-in-out;
 
 			transition-property: width, height, border-radius;
 		}
+        
+        &--mask{
+            position: static;
+            @include trbl;
+            
+            clip-path: circle(0 at 100% 100%);
+            pointer-events: none;
+            
+            transition-property: clip-path;
+        }
 	}
 
 	&__opener{
@@ -88,6 +98,11 @@ $transition: .3s ease-in-out;
 					height: 100vh;
 					border-radius: 0;
 				}
+                
+                &--mask{
+                    clip-path: circle(200% at 100% 100%);
+                    pointer-events: auto;
+                }
 			}
 		}
 	}

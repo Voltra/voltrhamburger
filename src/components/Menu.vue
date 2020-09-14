@@ -1,6 +1,6 @@
 <template>
 	<div :class="menuClass">
-		<div class="menu__content menu__content--shape">
+		<div class="menu__content menu__content--mask">
 			<!-- <DEMO> -->
 			<nav class="menu__nav">
 				<ul class="menu__list">
